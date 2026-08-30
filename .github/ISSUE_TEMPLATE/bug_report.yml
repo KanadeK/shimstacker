@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a reproducible incorrect result or failure.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: plan
+    attributes:
+      label: Minimal plan
+      description: Paste the smallest plan that reproduces the problem. Remove private identifiers.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result and reasoning
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: ShimStacker and Python versions
+    validations:
+      required: true
+

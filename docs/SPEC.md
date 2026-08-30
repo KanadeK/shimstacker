@@ -69,8 +69,9 @@ One UTF-8 JSON file with these exact top-level fields:
 
 Decimal dimensions are JSON strings and are parsed with `decimal.Decimal`.
 Unknown fields, duplicate IDs, booleans in integer fields, non-positive
-thicknesses, negative tolerances, invalid ranges, and values beyond the explicit
-bounds fail validation. Units are labels only; v0.1.0 performs no conversion.
+thicknesses, negative tolerances, invalid ranges, unsafe CSV-leading unit labels,
+and values beyond the explicit bounds fail validation. Units are labels only;
+v0.1.0 performs no conversion.
 
 Bounds: 1-32 stock batches, 1-24 jobs, quantity 1-100 per batch,
 `max_pieces` 1-8 per job, and `max_states` 1-2,000,000.
@@ -151,4 +152,3 @@ self-contained, script-free `report.html` for all solver outcomes.
   inspection, and isolated wheel smoke tests pass on Python 3.11 and 3.13;
 - GitHub CI, tagged release assets, and the static Pages demo are green;
 - a fresh download/install/run reproduces the documented result.
-

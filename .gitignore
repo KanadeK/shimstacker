@@ -2,6 +2,7 @@
 .uv-cache/
 .cache/
 .test-tmp/
+.gate-*/
 .coverage
 .mypy_cache/
 .pytest_cache/

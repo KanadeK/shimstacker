@@ -64,6 +64,13 @@ def _identifier(value: object, path: str) -> str:
     return identifier
 
 
+def _unit(value: object) -> str:
+    unit = _string(value, "unit", maximum=16)
+    if unit != unit.strip() or unit[0] in "=+-@" or any(char in unit for char in "\r\n\t"):
+        raise PlanError("unit contains unsafe characters")
+    return unit
+
+
 def _integer(value: object, path: str, *, minimum: int, maximum: int) -> int:
     if isinstance(value, bool) or not isinstance(value, int):
         raise PlanError(f"{path} must be an integer")
@@ -163,7 +170,7 @@ def parse_plan_text(text: str) -> Plan:
 
     return Plan(
         project=_string(root["project"], "project", maximum=120),
-        unit=_string(root["unit"], "unit", maximum=16),
+        unit=_unit(root["unit"]),
         max_states=_integer(root["max_states"], "max_states", minimum=1, maximum=2_000_000),
         stock=tuple(stock),
         jobs=tuple(jobs),

@@ -115,3 +115,12 @@ def test_rejects_invalid_json_and_non_object_root() -> None:
         parse_plan_text("{")
     with pytest.raises(PlanError, match="root must be an object"):
         parse_plan_text("[]")
+
+
+@pytest.mark.parametrize("unit", ["=1+1", "+SUM(A1)", "-2", "@name", "\tmm", "mm\n"])
+def test_rejects_units_that_are_unsafe_in_csv(unit: str) -> None:
+    data = valid_plan_data()
+    data["unit"] = unit
+
+    with pytest.raises(PlanError, match="unit contains unsafe characters"):
+        parse_plan_text(encode(data))

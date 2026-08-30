@@ -28,6 +28,7 @@ dependencies = []
 dev = [
   "build==1.3.0",
   "coverage==7.10.6",
+  "hatchling==1.27.0",
   "mypy==1.17.1",
   "pytest==8.4.2",
   "ruff==0.12.12",
@@ -71,3 +72,4 @@ ignore = ["COM812", "D203", "D213", "E501", "EM101", "EM102", "TC003", "TRY003"]
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["ANN", "D", "PLR2004", "S101"]
 "src/shimstacker/cli.py" = ["T201"]
+"scripts/**/*.py" = ["T201"]

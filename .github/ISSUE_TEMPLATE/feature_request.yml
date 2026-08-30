@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a concrete shim-planning workflow.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Shop-floor problem
+      description: Describe the real decision that cannot be expressed today.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Example input and expected evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This can remain offline and deterministic.
+          required: true
+
