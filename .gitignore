@@ -1,5 +1,7 @@
 .venv/
 .uv-cache/
+.cache/
+.test-tmp/
 .coverage
 .mypy_cache/
 .pytest_cache/
@@ -9,4 +11,3 @@ __pycache__/
 build/
 dist/
 site/
-
