@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
-      - uses: astral-sh/setup-uv@v9
+      - uses: astral-sh/setup-uv@v10
         with:
           version: "0.12.7"
           enable-cache: true
